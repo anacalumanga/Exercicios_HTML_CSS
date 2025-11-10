@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de Transações</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #4a90e2, #357abd);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .balance {
+            padding: 15px 20px;
+            background-color: #f9f9f9;
+            border-bottom: 1px solid #eee;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .balance span {
+            font-weight: 700;
+            color: #4a90e2;
+        }
+
+        .transactions {
+            list-style: none;
+        }
+
+        .transaction-item {
+            border-bottom: 1px solid #eee;
+        }
+
+        .transaction-item:last-child {
+            border-bottom: none;
+        }
+
+        .transaction-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .transaction-header:hover {
+            background-color: #f8f9fc;
+        }
+
+        .info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .name {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .date {
+            font-size: 0.85rem;
+            color: #777;
+        }
+
+        .amount {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .received .amount {
+            color: #28a745;
+        }
+
+        .sent .amount {
+            color: #dc3545;
+        }
+
+        /* Estilo do <details> */
+        details {
+            background-color: #f1f3f5;
+            border-top: 1px solid #ddd;
+        }
+
+        summary {
+            list-style: none;
+            outline: none;
+        }
+
+        summary::marker,
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .details-content {
+            padding: 15px 20px;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .details-content p {
+            margin-bottom: 8px;
+        }
+
+        .details-content strong {
+            color: #333;
+        }
+
+        
+    
+        
+
+        details[open] summary::after {
+            content: '▲';
+            transform: rotate(180deg);
+        }
+
+        @media (max-width: 480px) {
+            .transaction-header {
+                padding: 14px 16px;
+            }
+
+            header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Minhas Transações</h1>
+        </header>
+
+        <div class="balance">
+            Saldo atual: <span>kz 2.450,00</span>
+        </div>
+
+        <ul class="transactions">
+
+            
+            <li class="transaction-item received">
+                <details>
+                    <summary>
+                        <div class="transaction-header">
+                            <div class="info">
+                                <div class="name">ALbertina Cabeya</div>
+                                <div class="date">08/11/2025 - 14:30</div>
+                            </div>
+                            <div class="amount">+ kz 1.200,00</div>
+                        </div>
+                    </summary>
+                    <div class="details-content">
+                        <p><strong>Tipo:</strong> Recebido via PIX</p>
+                        <p><strong>De</strong> Pagamento de serviço freelance</p>
+                        <p><strong>Chave PIX:</strong> ana.calumanga@email.com</p>
+                        <p><strong>ID da transação:</strong> #TRX987654321</p>
+                    </div>
+                </details>
+            </li>
+            <li class="transaction-item sent">
+                <details>
+                    <summary>
+                        <div class="transaction-header">
+                            <div class="info">
+                                <div class="name">Supermercado Kibabo</div>
+                                <div class="date">07/11/2025 - 18:45</div>
+                            </div>
+                            <div class="amount">- kz387,50</div>
+                        </div>
+                    </summary>
+                    <div class="details-content">
+                        <p><strong>Tipo:</strong> Enviado via PIX</p>
+                        <p><strong>Descrição:</strong> Compras do mês</p>
+                        <p><strong>Chave PIX:</strong> cnpj: 12.345.678/0001-99</p>
+                        <p><strong>ID da transação:</strong> #TRX987654320</p>
+                    </div>
+                </details>
+            </li>
+
+            <li class="transaction-item received">
+                <details>
+                    <summary>
+                        <div class="transaction-header">
+                            <div class="info">
+                                <div class="name">Ana Calumanga</div>
+                                <div class="date">06/11/2025 - 09:15</div>
+                            </div>
+                            <div class="amount">+ kz 750,00</div>
+                        </div>
+                    </summary>
+                    <div class="details-content">
+                        <p><strong>Tipo:</strong> Recebido via TED</p>
+                        <p><strong>Descrição:</strong> Reembolso de despesa</p>
+                        <p><strong>Banco:</strong> Banco do Brasil</p>
+                        <p><strong>Agência:</strong> 1234-5 | Conta: 67890-1</p>
+                        <p><strong>ID da transação:</strong> #TRX987654319</p>
+                    </div>
+                </details>
+            </li>
+            <li class="transaction-item sent">
+                <details>
+                    <summary>
+                        <div class="transaction-header">
+                            <div class="info">
+                                <div class="name">Internet Fibra Rápida</div>
+                                <div class="date">05/11/2025 - 10:00</div>
+                            </div>
+                            <div class="amount">- kz 99,90</div>
+                        </div>
+                    </summary>
+                    <div class="details-content">
+                        <p><strong>Tipo:</strong> Pagamento de boleto</p>
+                        <p><strong>Descrição:</strong> Fatura de internet - Novembro/2025</p>
+                        <p><strong>Código de barras:</strong> 34191.75008 12345.678900 01234.567891 0 12345678901234</p>
+                        <p><strong>ID da transação:</strong> #TRX987654318</p>
+                    </div>
+                </details>
+            </li>
+
+        </ul>
+    </div>
+</body>
+</html>
